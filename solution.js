@@ -1,4 +1,6 @@
-class MoistureContent {
+import {roundingCalculater} from './method.js';
+
+export class MoistureContent {
   constructor(method, tareId, tareMass, mcms, mcds) {
     this.method = method;
     this.tareId = tareId;
@@ -52,20 +54,16 @@ class MoistureContent {
     }
     // Calculate the result and round it based on the method input  
     let result = (mcms - mcds)/(mcds - tareMass)* 100;
-    if (method === "A") {
-      result = Math.round(result);
-    } else if (method === "B") {
-      result = result.toFixed(1)
-    }
+    result = roundingCalculater(method, result);
     return result;
   }
 }
 
-module.exports = { MoistureContent }
+
 
 // example
-// const  scenario = new MoistureContent("A", "MT001", 300, 2859.6, 2525.7);
-//  console.log( scenario.getWaterContent())
+const  scenario = new MoistureContent("A", "MT001", 300, 2859.6, 2525.7);
+ console.log( scenario.getWaterContent())
 
 
 
