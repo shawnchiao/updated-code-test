@@ -38,9 +38,7 @@ export class MoistureContent {
 
     const statement1 = this.result.checkInsufficientSampleMass();
     const statement2 = this.result.checkIsNotDryingTemperature();
-    const specialComment = (!statement1 && !statement2) ? null : `${statement1}\nDrying temperature: ${statement2}`
-    const report = `Water Conent: ${waterContent}\nSpecial Comment: ${specialComment}`
-    console.log(this.result)
+    const report = `Water Conent: ${waterContent}\nSpecial Comment: ${statement1}\nDrying temperature: ${statement2}`
     return report;
   }
 }
@@ -48,7 +46,7 @@ export class MoistureContent {
 
 
 // example
-const  scenario = new MoistureContent("A", "MT001", 300, 2859.6, 2525.7, true, true);
+const  scenario = new MoistureContent("A", "MT001", 300, 2859.6, 2525.7,null, true);
 console.log(scenario.getResultReport())
 
 

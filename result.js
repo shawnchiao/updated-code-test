@@ -12,12 +12,16 @@ export default class Result {
   checkInsufficientSampleMass () {
     if (this.isInsufficientSampleMass) {
       return "Specimen mass < minimum required";
-    };
+    } else {
+      return "Null"
+    }
   }
 
   checkIsNotDryingTemperature () {
     if (this.isNotDryingTemperature) {
       return "100°C" //dummy data//
+    } else {
+      return "Null"
     }
   }
 
