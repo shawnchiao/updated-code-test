@@ -1,9 +1,9 @@
-import {roundingCalculater} from './method.js';
+import Mathod from './method.js';
 import errorHandler from './errorHandler.js';
 
 export class MoistureContent {
   constructor(method, tareId, tareMass, mcms, mcds) {
-    this.method = method;
+    this.method = new Mathod(method);
     this.tareId = tareId;
     this.tareMass = tareMass;
     this.mcms = mcms;
@@ -26,7 +26,7 @@ export class MoistureContent {
     errorHandler(tareMass, mcms, mcds);
     // Calculate the result and round it based on the method input  
     let result = (mcms - mcds)/(mcds - tareMass)* 100;
-    result = roundingCalculater(method, result);
+    result = this.method.roundingCalculater(result);
     return result;
   }
 }

@@ -5,28 +5,30 @@ const methods = {
 };
 
 // The class structure used to manipulate the methods related data, as the basic logic structure of method.
-class Method {
+export default class Method {
+  constructor (methodName, formula = methods[methodName]) {
+    this.methodName = methodName;
+    this.formula = formula;
+  }
+  // preserve these three methods bellow for potentially future use or other front end interface
   listAllMethods() {
     return methods;
-  };
+  }
 
   addOrEditMethod(name, formula) {
     methods[name] = formula;
-  };
+  }
   deleteMethod(name) {
     delete methods.name;
   }
-  useFormula(method) {
-    return methods[method]
+  ///
+
+  roundingCalculater(number) {
+    const result = this.formula(number);
+    return result
   }
 };
 
-// exporting caculator functiion that would come in handy
 
- export function roundingCalculater(method, number) {
-  const instance = new Method();
-  const roundingFunction = instance.useFormula(method);
-  return roundingFunction(number);
-};
 
 
