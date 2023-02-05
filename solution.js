@@ -32,7 +32,7 @@ export class MoistureContent {
     const { tc, mcms, mcds } = this;
    
     errorHandler(tc, mcms, mcds);
-    // Calculate the result and round it based on the method input  
+   
     let waterContent = this.result.calculateWaterContent();
     waterContent = this.method.roundingCalculater(waterContent);
 
@@ -46,7 +46,7 @@ export class MoistureContent {
 
 
 // example
-const  scenario = new MoistureContent("A", "MT001", 300, 2859.6, 2525.7,null, true);
+const  scenario = new MoistureContent("A", "MT001", 300, 2859.6, 2525.7);
 console.log(scenario.getResultReport())
 
 
